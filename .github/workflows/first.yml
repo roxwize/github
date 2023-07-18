@@ -1,13 +1,19 @@
-name: first-action
+name: First action
 run-name: Yabba dabba doo ${{ github.actor }}
-on: [push]
+on: push
+permissions:
+  contents: write
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Create file
+        run: date > amazing.txt
+      - name: Commit created file
+        run: |
+          git config --global user.name 'paul bleenis'
+          git config --global user.email 'biscordbro@gmail.com'
+          git add amazing.txt
+          git commit -m "Tons of fun"
+          git push
