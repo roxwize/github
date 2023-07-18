@@ -4,7 +4,7 @@ on: push
 permissions:
   contents: write
 jobs:
-  check-bats-version:
+  add-file-lol-lol-lalglglaha-ha-g:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
