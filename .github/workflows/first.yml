@@ -10,10 +10,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create file
         run: date > amazing.txt
-      - name: Commit created file
-        run: |
-          git config --global user.name 'paul bleenis'
-          git config --global user.email 'biscordbro@gmail.com'
-          git add amazing.txt
-          git commit -m "Tons of fun"
-          git push
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Urgh...... GitHub
